@@ -7,7 +7,7 @@
     <groupId>de.btobastian.sdcf4j</groupId>
     <artifactId>sdcf4j</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.9</version>
+    <version>1.1.0</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -19,6 +19,7 @@
         <module>sdcf4j-javacord</module>
         <module>sdcf4j-discord4j</module>
         <module>sdcf4j-jda3</module>
+        <module>sdcf4j-jda4</module>
     </modules>
 
     <build>
@@ -65,6 +66,19 @@
                     <stylesheet>java</stylesheet>
                 </configuration>
             </plugin>
+            <plugin>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.1</version>
+                <executions>
+                    <execution>
+                        <id>default-deploy</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
 
         <extensions>
@@ -80,9 +94,9 @@
     <distributionManagement>
         <!-- My repository which is the same I use for Javacord -->
         <repository>
-            <id>javacord-repo</id>
-            <name>Javacord Repository</name>
-            <url>ftp://bastian-oppermann.de/</url>
+            <id>nexus-snapshots</id>
+            <name>DeltaPvP Repository</name>
+            <url>https://nexus.deltapvp.net/repository/maven-releases/</url>
         </repository>
     </distributionManagement>
 

@@ -1,4 +1,4 @@
-# sdcf4j <a href="#"><img src="https://shields.javacord.org/github/release/BtoBastian/sdcf4j.svg?colorB=brightgreen&label=Version" alt="Latest version"></a> <a href="http://ci.ketrwu.de/job/sdcf4j/job/master/javadoc/"><img src="https://shields.javacord.org/badge/JavaDoc-latest-yellow.svg" alt="Latest JavaDocs"></a> <a href="https://github.com/BtoBastian/sdcf4j/wiki"><img src="https://shields.javacord.org/badge/Wiki-Home-red.svg" alt="Latest JavaDocs"></a>
+# sdcf4j <a href="#"><img src="https://img.shields.io/badge/version-1.1.0-brightgreen" alt="Latest version"></a> <a href="http://ci.ketrwu.de/job/sdcf4j/job/master/javadoc/"><img src="https://shields.javacord.org/badge/JavaDoc-latest-yellow.svg" alt="Latest JavaDocs"></a> <a href="https://github.com/BtoBastian/sdcf4j/wiki"><img src="https://shields.javacord.org/badge/Wiki-Home-red.svg" alt="Latest JavaDocs"></a>
 
 Sdcf4j is a **s**imple **D**iscord **c**ommand **f**ramework **for** **J**ava, supporting [Javacord](https://github.com/BtoBastian/Javacord), [JDA](https://github.com/DV8FromTheWorld/JDA) and [Discord4J](https://github.com/austinv11/Discord4J). It helps you creating commands within seconds in a clean and simple way.
 
@@ -13,8 +13,8 @@ public String onPingCommand() {
 ##  Maven
 ```xml
 <repository>
-  <id>jitpack.io</id>
-  <url>https://jitpack.io</url>
+  <id>deltapvp</id>
+  <url>https://repo.deltapvp.net</url>
 </repository>
 ...
 <!-- The core module -->
@@ -26,14 +26,14 @@ public String onPingCommand() {
 <!-- The module for your preferred lib -->
 <dependency>
   <groupId>de.btobastian.sdcf4j</groupId>
-  <!-- Possible artifact ids: sdcf4j-javacord, sdcf4j-jda3, sdcf4j-discord4j -->
+  <!-- Possible artifact ids: sdcf4j-javacord, sdcf4j-jda3, sdcf4j-jda4, sdcf4j-discord4j -->
   <artifactId>sdcf4j-javacord</artifactId>
   <version>%version%</version>
 </dependency>
 ```
 Make sure to replace `%version%` with the latest version number, e.g. `v1.0.0` (don't use this one!).
 
-Latest version: <a href="#"><img src="https://shields.javacord.org/github/release/BtoBastian/sdcf4j.svg?colorB=brightgreen&label=Version" alt="Latest version"></a>
+Latest version: <a href="#"><img src="https://img.shields.io/badge/version-1.1.0-brightgreen" alt="Latest version"></a>
 ## Support
  
 * [Javacord server](https://discord.gg/0qJ2jjyneLEgG7y3)
@@ -42,7 +42,7 @@ Latest version: <a href="#"><img src="https://shields.javacord.org/github/releas
 You can find me in one of these servers/channels. Feel free to contact me if you need help. :)
 
 ## Download
-For those of you how don't use maven: [Jenkins](http://ci.ketrwu.de/job/sdcf4j/branch/master/lastSuccessfulBuild/)
+For those of you how don't use maven: [Jenkins](http://ci.deltapvp.net/job/sdcf4j/branch/master/lastSuccessfulBuild/)
 
 Thanks to ketrwu (https://github.com/KennethWussmann).
 
@@ -97,6 +97,8 @@ public String onCommand(Channel channel) {
 CommandHandler cmdHandler = new JavacordHandler(api);
 // JDA3
 CommandHandler cmdHandler = new JDA3Handler(jda);
+// JDA4
+CommandHandler cmdHandler = new JDA4Handler(jda);
 // Discord4J
 CommandHandler cmdHandler = new Discord4JHandler(client);
 

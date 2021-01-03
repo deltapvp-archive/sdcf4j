@@ -35,6 +35,7 @@ public abstract class CommandHandler {
     private final HashMap<String, List<String>> permissions = new HashMap<>();
 
     protected String defaultPrefix = "";
+    protected String fallbackPrefix = "$";
 
     // From Javacord's DiscordRegexPattern
     protected static final Pattern USER_MENTION =
@@ -69,6 +70,7 @@ public abstract class CommandHandler {
             for (String alias : annotation.aliases()) {
                 // add command to map. It's faster to access it from the map than iterating to the whole list
                 commands.put(defaultPrefix + alias.toLowerCase().replace(" ", ""), command);
+                commands.put(fallbackPrefix + alias.toLowerCase().replace(" ", ""), command);
             }
             // we need a list, too, because a HashMap is not ordered.
             commandList.add(command);
@@ -133,6 +135,31 @@ public abstract class CommandHandler {
      */
     public List<SimpleCommand> getCommands() {
         return Collections.unmodifiableList(commandList);
+    }
+
+    /**
+     * Sets the fallback prefix.
+     * Changing the fallback prefix after registering a command has no effect!
+     *
+     * @param fallbackPrefix the fallback prefix.
+     */
+
+    public void setFallbackPrefix(String fallbackPrefix) {
+        if (fallbackPrefix == null) {
+            this.fallbackPrefix = "";
+        } else {
+            this.fallbackPrefix = fallbackPrefix.replace(" ", "");
+        }
+    }
+
+    /**
+     * Gets the fallback command prefix
+     *
+     * @return the fallback command prefix
+     */
+
+    public String getFallbackPrefix() {
+        return fallbackPrefix;
     }
 
     /**

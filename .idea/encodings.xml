@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/sdcf4j-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sdcf4j-discord4j/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sdcf4j-javacord/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sdcf4j-jda3/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/sdcf4j-jda4/src/main/java" charset="UTF-8" />
+  </component>
+</project>

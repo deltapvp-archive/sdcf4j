@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sdcf4j-core" />
+        <module name="sdcf4j-jda3" />
+        <module name="sdcf4j-jda4" />
+        <module name="sdcf4j-javacord" />
+        <module name="sdcf4j-discord4j" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="sdcf4j" target="1.8" />
+      <module name="sdcf4j-core" target="1.7" />
+      <module name="sdcf4j-discord4j" target="1.8" />
+      <module name="sdcf4j-javacord" target="1.8" />
+      <module name="sdcf4j-jda3" target="1.8" />
+      <module name="sdcf4j-jda4" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
