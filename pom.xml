@@ -4,10 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.btobastian.sdcf4j</groupId>
+    <groupId>me.powercasgamer.sdcf4j</groupId>
     <artifactId>sdcf4j</artifactId>
     <packaging>pom</packaging>
-    <version>1.1.0</version>
+    <version>1.1.1</version>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -80,24 +80,18 @@
                 </executions>
             </plugin>
         </plugins>
-
-        <extensions>
-            <!-- We upload our repo using ftp -->
-            <extension>
-                <groupId>org.apache.maven.wagon</groupId>
-                <artifactId>wagon-ftp</artifactId>
-                <version>1.0-beta-6</version>
-            </extension>
-        </extensions>
     </build>
 
     <distributionManagement>
-        <!-- My repository which is the same I use for Javacord -->
         <repository>
-            <id>nexus-snapshots</id>
+            <id>repos</id>
             <name>DeltaPvP Repository</name>
-            <url>https://nexus.deltapvp.net/repository/maven-releases/</url>
+            <url>https://repos.deltapvp.net/all/</url>
         </repository>
+        <snapshotRepository>
+            <id>repos</id>
+            <name>DeltaPvP Repository</name>
+            <url>https://repos.deltapvp.net/all/</url>
+        </snapshotRepository>
     </distributionManagement>
-
 </project>

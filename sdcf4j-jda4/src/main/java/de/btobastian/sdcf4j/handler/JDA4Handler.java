@@ -18,6 +18,7 @@
  */
 package de.btobastian.sdcf4j.handler;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import de.btobastian.sdcf4j.Command;
 import de.btobastian.sdcf4j.CommandHandler;
 import de.btobastian.sdcf4j.Sdcf4jMessage;
@@ -25,13 +26,14 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 import java.util.regex.Matcher;
 
 /**
@@ -43,6 +45,11 @@ public class JDA4Handler extends CommandHandler {
      * The logger of this class.
      */
     private static final Logger logger = LoggerFactory.getLogger(JDA4Handler.class);
+    private final ExecutorService executor = Executors.newSingleThreadExecutor(new ThreadFactoryBuilder()
+            .setDaemon(true)
+            .setNameFormat("sdcf4j-command-executor")
+            .build()
+    );
 
     /**
      * Creates a new instance of this class.
@@ -50,6 +57,12 @@ public class JDA4Handler extends CommandHandler {
      * @param jda A JDA instance.
      */
     public JDA4Handler(JDA jda) {
+        if (!jda.getGatewayIntents().contains(GatewayIntent.GUILD_MEMBERS) || !jda.getGatewayIntents().contains(GatewayIntent.GUILD_MESSAGES)) {
+            logger.error("Cannot load SDCF4J, missing required GatewayIntent GUILD_MEMBERS and GUILD_MESSAGES");
+            executor.shutdown();
+            return;
+        }
+
         jda.addEventListener(new ListenerAdapter() {
             @Override
             public void onMessageReceived(MessageReceivedEvent event) {
@@ -130,9 +143,7 @@ public class JDA4Handler extends CommandHandler {
         final Object[] parameters = getParameters(splitMessage, command, event);
         if (commandAnnotation.async()) {
             final SimpleCommand commandFinal = command;
-            Thread t = new Thread(() -> invokeMethod(commandFinal, event, parameters));
-            t.setDaemon(true);
-            t.start();
+            executor.execute(() -> invokeMethod(commandFinal, event, parameters));
         } else {
             invokeMethod(command, event, parameters);
         }

@@ -143,9 +143,8 @@ public abstract class CommandHandler {
      *
      * @param fallbackPrefix the fallback prefix.
      */
-
     public void setFallbackPrefix(String fallbackPrefix) {
-        if (fallbackPrefix == null) {
+        if (fallbackPrefix == null || fallbackPrefix.isEmpty()) {
             this.fallbackPrefix = "";
         } else {
             this.fallbackPrefix = fallbackPrefix.replace(" ", "");
@@ -157,7 +156,6 @@ public abstract class CommandHandler {
      *
      * @return the fallback command prefix
      */
-
     public String getFallbackPrefix() {
         return fallbackPrefix;
     }

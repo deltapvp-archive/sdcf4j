@@ -14,20 +14,20 @@ public String onPingCommand() {
 ```xml
 <repository>
   <id>deltapvp</id>
-  <url>https://repo.deltapvp.net</url>
+  <url>https://repo.deltapvp.net/</url>
 </repository>
 ...
 <!-- The core module -->
 <dependency>
-  <groupId>de.btobastian.sdcf4j</groupId>
+  <groupId>me.powercasgamer.sdcf4j</groupId>
   <artifactId>sdcf4j-core</artifactId>
   <version>%version%</version>
 </dependency>
 <!-- The module for your preferred lib -->
 <dependency>
-  <groupId>de.btobastian.sdcf4j</groupId>
+  <groupId>me.powercasgamer.sdcf4j</groupId>
   <!-- Possible artifact ids: sdcf4j-javacord, sdcf4j-jda3, sdcf4j-jda4, sdcf4j-discord4j -->
-  <artifactId>sdcf4j-javacord</artifactId>
+  <artifactId>sdcf4j-jda4</artifactId>
   <version>%version%</version>
 </dependency>
 ```
@@ -36,15 +36,10 @@ Make sure to replace `%version%` with the latest version number, e.g. `v1.0.0` (
 Latest version: <a href="#"><img src="https://img.shields.io/badge/version-1.1.0-brightgreen" alt="Latest version"></a>
 ## Support
  
-* [Javacord server](https://discord.gg/0qJ2jjyneLEgG7y3)
+* [JavaCord server](https://discord.gg/0qJ2jjyneLEgG7y3)
 * [DiscordAPI #java_javacord channel](https://discord.gg/0SBTUU1wZTVXVKEo)
 
 You can find me in one of these servers/channels. Feel free to contact me if you need help. :)
-
-## Download
-For those of you how don't use maven: [Jenkins](http://ci.deltapvp.net/job/sdcf4j/branch/master/lastSuccessfulBuild/)
-
-Thanks to ketrwu (https://github.com/KennethWussmann).
 
 ## Javadocs
 The javadocs can be found here: [JavaDocs](http://ci.ketrwu.de/job/sdcf4j/job/master/javadoc/)
